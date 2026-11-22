@@ -1,0 +1,2283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MK Dairies — Pure Cow Milk, Greek Yogurt &amp; Natural Dairy in Lahore</title>
+    <meta
+      name="description"
+      content="100% pure cow milk products, strained Greek yogurt, natural whey water, bilona desi ghee, and cold-pressed canola oil with home delivery across Lahore."
+    />
+    <meta property="og:title" content="MK Dairies — Pure Cow Milk &amp; Natural Dairy in Lahore" />
+    <meta
+      property="og:description"
+      content="Farm-fresh cow milk, strained Greek yogurt, natural whey water, bilona desi ghee, and cold-pressed canola oil delivered across Lahore."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      window.__mkHandleImgError = function (img) {
+        if (!img || img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = '1';
+        var label = img.getAttribute('data-fallback-label') || 'MK Dairies Fresh Produce';
+        var fallback = document.createElement('div');
+        fallback.className = 'img-fallback';
+        fallback.setAttribute('role', 'img');
+        fallback.setAttribute('aria-label', img.alt || label);
+        fallback.innerHTML =
+          '<svg width="36" height="36" viewBox="0 0 40 40" fill="none" style="margin-bottom:0.5rem;opacity:0.85;" aria-hidden="true">' +
+            '<circle cx="20" cy="20" r="19" fill="#FAFBF9" stroke="#DDE4D8"/>' +
+            '<path d="M20 9.5C20 9.5 14 16.2 14 21.2C14 24.5 16.7 27 20 27C23.3 27 26 24.5 26 21.2C26 16.2 20 9.5 20 9.5Z" fill="#236B3B" fill-opacity="0.16" stroke="#236B3B" stroke-width="1.6" stroke-linejoin="round"/>' +
+            '<path d="M20 27C20 22.8 22.8 19.6 27 18.6C26 22.8 23.4 25.8 20 27Z" fill="#236B3B"/>' +
+          '</svg>' +
+          '<span>' + String(label).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</span>';
+        if (img.parentNode) {
+          img.parentNode.replaceChild(fallback, img);
+        } else {
+          img.style.display = 'none';
+        }
+      };
+    </script>
+    <style>
+      /* =====================================================================
+         MK Dairies Design Tokens & Base Styles
+         ===================================================================== */
+      :root {
+        --bg-canvas: #FAFBF9;
+        --bg-meadow: #F2F6EE;
+        --bg-meadow-hover: #E7EFE0;
+        --bg-card: #FFFFFF;
+        --ink-primary: #16231B;
+        --ink-muted: #4A5950;
+        --border-hairline: #DDE4D8;
+        --farm-green: #236B3B;
+        --farm-green-dark: #1B552F;
+        --mineral-blue: #1E5B88;
+        --mineral-blue-dark: #17486C;
+        --ghee-gold-ink: #8F6014;
+        --error-red: #B91C1C;
+        --font-display: "Fraunces", Georgia, serif;
+        --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+        font-family: var(--font-sans);
+        background-color: var(--bg-canvas);
+        color: var(--ink-primary);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg-canvas);
+        color: var(--ink-primary);
+        line-height: 1.5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      h1, h2, h3, .font-display {
+        font-family: var(--font-display);
+        margin: 0;
+      }
+
+      p, ul, ol, dl, dd, dt, figure, blockquote { margin: 0; }
+      ul, ol { list-style: none; padding: 0; }
+      a { color: inherit; text-decoration: none; }
+      button, input, select, textarea { font: inherit; color: inherit; }
+      img { display: block; max-width: 100%; }
+
+      .font-mono { font-family: var(--font-mono); }
+      .tabular-nums { font-variant-numeric: tabular-nums; }
+      .sr-only {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+      }
+      .hidden { display: none !important; }
+
+      :focus-visible {
+        outline: 2px solid var(--farm-green);
+        outline-offset: 2px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 72rem;
+        margin-inline: auto;
+        padding-inline: 1rem;
+      }
+      @media (min-width: 640px) { .container { padding-inline: 1.5rem; } }
+      @media (min-width: 1024px) { .container { padding-inline: 2rem; } }
+
+      /* =====================================================================
+         Buttons & Shared Controls
+         ===================================================================== */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+      }
+      .btn-primary { background-color: var(--farm-green); color: #FFFFFF; padding: 0.75rem 1.5rem; font-size: 0.9375rem; }
+      .btn-primary:hover { background-color: var(--farm-green-dark); }
+      .btn-secondary {
+        background-color: var(--bg-meadow);
+        color: var(--ink-primary);
+        border-color: var(--border-hairline);
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+      }
+      .btn-secondary:hover { background-color: var(--bg-meadow-hover); }
+      .btn-sm { padding: 0.5rem 1rem; font-size: 0.875rem; }
+      .btn-mineral { background-color: var(--mineral-blue); color: #FFFFFF; }
+      .btn-mineral:hover { background-color: var(--mineral-blue-dark); }
+
+      /* =====================================================================
+         Top Navigation Bar
+         ===================================================================== */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background-color: rgba(250, 251, 249, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .header-inner {
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .brand-emblem {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 9999px;
+        flex-shrink: 0;
+        display: block;
+      }
+      .footer-brand-lockup {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.625rem;
+      }
+      .footer-brand-emblem {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 9999px;
+        flex-shrink: 0;
+        display: block;
+      }
+      .brand-name {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+      }
+      .desktop-nav {
+        display: none;
+        align-items: center;
+        gap: 1.75rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--ink-muted);
+      }
+      .desktop-nav a {
+        white-space: nowrap;
+        flex-shrink: 0;
+        text-underline-offset: 4px;
+        transition: color 150ms ease;
+      }
+      .desktop-nav a:hover { color: var(--ink-primary); text-decoration: underline; }
+      .header-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+      .header-cta { display: none; }
+      .mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-hairline);
+        background: transparent;
+        color: var(--ink-primary);
+        cursor: pointer;
+      }
+      .mobile-menu-btn:hover { background-color: var(--bg-meadow); }
+      .mobile-drawer {
+        border-top: 1px solid var(--border-hairline);
+        background-color: var(--bg-canvas);
+        padding: 1rem;
+      }
+      .mobile-nav-list { display: flex; flex-direction: column; gap: 0.25rem; }
+      .mobile-nav-list a {
+        display: block;
+        padding: 0.625rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+      }
+      .mobile-nav-list a:hover { background-color: var(--bg-meadow); }
+      .mobile-drawer-cta { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-hairline); }
+      .mobile-drawer-cta .btn { width: 100%; padding-block: 0.75rem; }
+
+      @media (min-width: 640px) { .header-cta { display: inline-flex; } }
+      @media (min-width: 768px) {
+        .desktop-nav { display: flex; }
+        .mobile-menu-btn, .mobile-drawer { display: none !important; }
+      }
+
+      /* =====================================================================
+         Hero Section
+         ===================================================================== */
+      .hero-section {
+        padding-top: 2.5rem;
+        padding-bottom: 3.5rem;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: stretch;
+      }
+      .hero-copy { display: flex; flex-direction: column; justify-content: center; padding-block: 0.5rem; }
+      .section-kicker {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--farm-green);
+        margin-bottom: 0.75rem;
+      }
+      .hero-title {
+        font-size: clamp(2rem, 3.8vw, 3.1rem);
+        font-weight: 600;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      .hero-lead {
+        margin-top: 1.25rem;
+        font-size: 1.0625rem;
+        line-height: 1.65;
+        color: var(--ink-muted);
+        max-width: 36rem;
+      }
+      .hero-ctas { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+      .hero-trust-list {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-hairline);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+        color: var(--ink-muted);
+      }
+      .hero-media {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid var(--border-hairline);
+        background: linear-gradient(135deg, var(--bg-meadow) 0%, #E6EDE0 100%);
+        min-height: 260px;
+      }
+      .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+      .pillars-grid {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-hairline);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .pillar-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); }
+      .pillar-title { font-size: 1rem; font-weight: 600; margin-top: 0.375rem; }
+      .pillar-desc { font-size: 0.875rem; line-height: 1.6; color: var(--ink-muted); margin-top: 0.375rem; }
+
+      @media (min-width: 640px) {
+        .hero-media { min-height: 340px; }
+        .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (min-width: 1024px) {
+        .hero-section { padding-top: 3.5rem; padding-bottom: 5rem; }
+        .hero-grid { grid-template-columns: repeat(12, 1fr); gap: 3rem; }
+        .hero-copy { grid-column: span 6; }
+        .hero-media { grid-column: span 6; min-height: 420px; }
+        .pillars-grid { grid-template-columns: repeat(4, 1fr); }
+      }
+
+      /* =====================================================================
+         Section Headings & Shared Cards
+         ===================================================================== */
+      .section-pad { padding-block: 4rem; }
+      @media (min-width: 1024px) { .section-pad { padding-block: 5rem; } }
+
+      .section-heading {
+        font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        text-wrap: balance;
+      }
+      .section-sub {
+        margin-top: 0.625rem;
+        font-size: 1rem;
+        line-height: 1.65;
+        color: var(--ink-muted);
+      }
+
+      .img-fallback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        min-height: 200px;
+        background: linear-gradient(135deg, #F2F6EE, #E6EDE0);
+        color: var(--farm-green);
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      /* =====================================================================
+         Product Catalog Section
+         ===================================================================== */
+      .catalog-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .catalog-header-copy { max-width: 36rem; }
+      .tablist {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.375rem;
+        background-color: var(--bg-meadow);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.75rem;
+        align-self: flex-start;
+        flex-shrink: 0;
+      }
+      .tab-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        border: none;
+        background: transparent;
+        color: var(--ink-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: background-color 150ms ease, color 150ms ease;
+      }
+      .tab-btn:hover { color: var(--ink-primary); background-color: var(--bg-canvas); }
+      .tab-btn[aria-selected="true"] {
+        background-color: var(--farm-green);
+        color: #FFFFFF;
+        box-shadow: 0 1px 2px rgba(22, 35, 27, 0.08);
+      }
+      @media (min-width: 640px) {
+        .tablist { flex-wrap: nowrap; }
+        .tab-btn { font-size: 0.875rem; }
+      }
+      @media (min-width: 1280px) {
+        .catalog-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+      }
+
+      .selection-banner {
+        margin-top: 1.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        background-color: var(--bg-meadow);
+        border: 1px solid var(--border-hairline);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        font-size: 0.875rem;
+      }
+      .link-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--farm-green);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        cursor: pointer;
+      }
+      .link-btn:hover { color: var(--farm-green-dark); }
+
+      .product-grid {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; } }
+
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        transition: transform 150ms ease;
+      }
+      .product-card:hover { transform: translateY(-2px); }
+      .product-thumb {
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--bg-meadow) 0%, #E6EDE0 100%);
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .product-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+      .product-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+      .product-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--ink-muted); }
+      .product-meta-cat { font-weight: 500; color: var(--farm-green); }
+      .product-meta-cat.mineral { color: var(--mineral-blue); }
+      .product-title-row {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .product-title { font-size: 1.125rem; font-weight: 600; line-height: 1.3; }
+      .product-price { font-size: 0.875rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+      .product-summary { margin-top: 0.625rem; font-size: 0.875rem; line-height: 1.6; color: var(--ink-muted); }
+      .product-benefits {
+        margin-top: 1rem;
+        padding-top: 0.875rem;
+        border-top: 1px solid var(--border-hairline);
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+        font-size: 0.75rem;
+        color: var(--ink-muted);
+      }
+      .product-benefits li { display: flex; align-items: flex-start; gap: 0.5rem; }
+      .benefit-dash { color: var(--farm-green); font-weight: 600; line-height: 1.3; }
+      .product-footer {
+        margin-top: auto;
+        padding-top: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .method-note { font-size: 0.75rem; color: var(--ink-muted); }
+
+      .qty-stepper {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        background-color: var(--bg-meadow);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.5rem;
+        padding: 0.25rem;
+      }
+      .qty-btn {
+        width: 2rem;
+        height: 2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        color: var(--ink-primary);
+      }
+      .qty-btn:hover:not(:disabled) { background-color: #FFFFFF; }
+      .qty-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+      .qty-val {
+        padding-inline: 0.375rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      /* =====================================================================
+         Daily Pure Cow Milk Subscription Section
+         ===================================================================== */
+      .subscription-section {
+        background-color: #FFFFFF;
+        border-top: 1px solid var(--border-hairline);
+      }
+      .split-2col {
+        margin-top: 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+      @media (min-width: 1024px) {
+        .split-2col { grid-template-columns: repeat(12, 1fr); gap: 2.5rem; }
+        .col-span-6 { grid-column: span 6; }
+        .col-span-5 { grid-column: span 5; }
+        .col-span-7 { grid-column: span 7; }
+      }
+      .panel-card {
+        background-color: var(--bg-canvas);
+        border: 1px solid var(--border-hairline);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+      @media (min-width: 640px) { .panel-card { padding: 2rem; } }
+
+      .plan-tabs {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.625rem;
+        padding: 0.375rem;
+        background-color: var(--bg-meadow);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.75rem;
+      }
+      @media (min-width: 640px) { .plan-tabs { grid-template-columns: repeat(2, 1fr); } }
+      .plan-tab {
+        padding: 0.625rem 1rem;
+        text-align: left;
+        border-radius: 0.5rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        transition: background-color 150ms ease, color 150ms ease;
+      }
+      .plan-tab:hover { background-color: var(--bg-canvas); }
+      .plan-tab[aria-selected="true"] {
+        background-color: var(--farm-green);
+        color: #FFFFFF;
+        box-shadow: 0 1px 2px rgba(22, 35, 27, 0.08);
+      }
+      .plan-tab-title { display: block; font-size: 0.875rem; font-weight: 600; white-space: nowrap; }
+      .plan-tab-sub { display: block; font-size: 0.75rem; margin-top: 0.125rem; color: var(--ink-muted); }
+      .plan-tab[aria-selected="true"] .plan-tab-sub { color: rgba(255, 255, 255, 0.9); }
+
+      .preset-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      .preset-btn {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-hairline);
+        background-color: #FFFFFF;
+        color: var(--ink-primary);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .preset-btn:hover { border-color: var(--farm-green); }
+      .preset-btn[aria-pressed="true"] {
+        background-color: var(--farm-green);
+        border-color: var(--farm-green);
+        color: #FFFFFF;
+      }
+
+      .liter-stepper-row { margin-top: 0.75rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+      .liter-stepper {
+        display: inline-flex;
+        align-items: center;
+        background-color: #FFFFFF;
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.5rem;
+        padding: 0.25rem;
+      }
+      .liter-stepper .qty-btn { width: 2.25rem; height: 2.25rem; }
+      .liter-input {
+        width: 5rem;
+        text-align: center;
+        border: none;
+        background: transparent;
+        font-family: var(--font-mono);
+        font-size: 0.875rem;
+        font-weight: 600;
+        outline: none;
+      }
+
+      .breakdown-box { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-hairline); }
+      .breakdown-header { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+      .breakdown-list { margin-top: 0.75rem; font-size: 0.875rem; }
+      .breakdown-row {
+        padding-block: 0.625rem;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .breakdown-row dt { color: var(--ink-muted); }
+      .breakdown-row dd { font-family: var(--font-mono); font-weight: 500; white-space: nowrap; }
+      .breakdown-total {
+        padding-top: 0.75rem;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .breakdown-total dt { font-weight: 600; }
+      .breakdown-total dd {
+        font-family: var(--font-mono);
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--farm-green);
+        white-space: nowrap;
+      }
+
+      /* =====================================================================
+         Forms, Validation & Confirmation Cards
+         ===================================================================== */
+      .form-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+      .form-grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+      @media (min-width: 640px) { .form-grid-2 { grid-template-columns: repeat(2, 1fr); } }
+      .field-label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.375rem; }
+      .field-input {
+        width: 100%;
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+        background-color: var(--bg-canvas);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.5rem;
+        transition: border-color 150ms ease, box-shadow 150ms ease;
+      }
+      .field-input.white { background-color: #FFFFFF; }
+      .field-input:focus {
+        outline: none;
+        border-color: var(--farm-green);
+        box-shadow: 0 0 0 3px rgba(35, 107, 59, 0.16);
+      }
+      .field-error { margin-top: 0.375rem; font-size: 0.75rem; color: var(--error-red); }
+
+      .confirm-card {
+        border: 1px solid rgba(35, 107, 59, 0.4);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        background-color: #FFFFFF;
+      }
+      .confirm-card.canvas { background-color: var(--bg-canvas); }
+      @media (min-width: 640px) { .confirm-card { padding: 2rem; } }
+      .confirm-head { display: flex; align-items: flex-start; gap: 0.75rem; }
+      .confirm-details {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--border-hairline);
+        font-size: 0.875rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .confirm-meta-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      @media (min-width: 640px) { .confirm-meta-grid { grid-template-columns: repeat(2, 1fr); } }
+      .confirm-label { display: block; font-size: 0.75rem; color: var(--ink-muted); }
+      .confirm-val { font-weight: 500; }
+      .confirm-actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+      /* =====================================================================
+         Process & Nutrition Section
+         ===================================================================== */
+      .process-section {
+        background-color: var(--bg-meadow);
+        border-top: 1px solid var(--border-hairline);
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .process-grid {
+        margin-top: 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      @media (min-width: 1024px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+      .process-card {
+        background-color: var(--bg-canvas);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+      }
+      .process-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; font-size: 0.75rem; }
+      .process-title { font-size: 1.25rem; font-weight: 600; margin-top: 0.75rem; }
+      .process-desc { font-size: 0.875rem; line-height: 1.65; color: var(--ink-muted); margin-top: 0.75rem; }
+
+      /* =====================================================================
+         Customer Feedback & Order Form Section
+         ===================================================================== */
+      .reviews-grid {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      @media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+      .review-card {
+        background-color: #FFFFFF;
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .review-quote { font-size: 0.9375rem; line-height: 1.65; }
+      .review-foot {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-hairline);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--ink-muted);
+      }
+
+      .order-divider-wrap {
+        margin-top: 5rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--border-hairline);
+      }
+      .delivery-notes-box {
+        margin-top: 1.25rem;
+        background-color: var(--bg-meadow);
+        border: 1px solid var(--border-hairline);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        font-size: 0.875rem;
+        color: var(--ink-muted);
+      }
+      .delivery-notes-box ul { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+      .order-form-card {
+        background-color: #FFFFFF;
+        border: 1px solid var(--border-hairline);
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+      @media (min-width: 640px) { .order-form-card { padding: 2rem; } }
+      .order-items-grid { display: grid; grid-template-columns: 1fr; gap: 0.625rem; }
+      @media (min-width: 640px) { .order-items-grid { grid-template-columns: repeat(2, 1fr); } }
+      .order-item-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 0.625rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border-hairline);
+        background-color: var(--bg-canvas);
+        transition: background-color 150ms ease, border-color 150ms ease;
+      }
+      .order-item-row.selected { background-color: var(--bg-meadow); border-color: var(--farm-green); }
+      .order-item-info { min-width: 0; }
+      .order-item-name {
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .order-item-sub { font-size: 0.6875rem; color: var(--ink-muted); }
+      .mini-stepper { display: inline-flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+      .mini-btn {
+        width: 1.75rem;
+        height: 1.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-hairline);
+        background-color: #FFFFFF;
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
+      .mini-btn:hover:not(:disabled) { border-color: var(--farm-green); }
+      .mini-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+      .mini-qty { width: 1.5rem; text-align: center; font-size: 0.75rem; font-weight: 600; }
+
+      /* =====================================================================
+         Footer
+         ===================================================================== */
+      .site-footer {
+        margin-top: auto;
+        background-color: var(--bg-meadow);
+        border-top: 1px solid var(--border-hairline);
+        padding-block: 3rem;
+      }
+      .footer-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      @media (min-width: 768px) { .footer-top { flex-direction: row; align-items: flex-start; } }
+      .footer-brand { max-width: 24rem; }
+      .footer-brand p { margin-top: 0.5rem; font-size: 0.875rem; line-height: 1.6; color: var(--ink-muted); }
+      .footer-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; font-size: 0.875rem; }
+      @media (min-width: 640px) { .footer-cols { grid-template-columns: repeat(3, 1fr); } }
+      .footer-cols h3 { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; }
+      .footer-cols ul { display: flex; flex-direction: column; gap: 0.375rem; color: var(--ink-muted); }
+      .footer-cols a:hover { color: var(--ink-primary); }
+      .footer-cols p { color: var(--ink-muted); line-height: 1.6; }
+      .footer-bottom {
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--ink-muted);
+      }
+      @media (min-width: 640px) {
+        .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.__mkImgFallback = function (img) {
+        if (!img || img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = '1';
+        var label = img.getAttribute('data-fallback-label') || 'MK Dairies Fresh Produce';
+        var box = document.createElement('div');
+        box.className = 'img-fallback';
+        box.setAttribute('role', 'img');
+        box.setAttribute('aria-label', img.getAttribute('alt') || label);
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', '36');
+        svg.setAttribute('height', '36');
+        svg.setAttribute('viewBox', '0 0 40 40');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.style.marginBottom = '0.5rem';
+        svg.innerHTML =
+          '<circle cx="20" cy="20" r="18" fill="#FAFBF9" stroke="#236B3B" stroke-width="1.5"/>' +
+          '<path d="M20 9.5C20 9.5 13.5 17 13.5 22C13.5 25.59 16.41 28.5 20 28.5C23.59 28.5 26.5 25.59 26.5 22C26.5 17 20 9.5 20 9.5Z" fill="#236B3B" fill-opacity="0.14" stroke="#236B3B" stroke-width="1.6" stroke-linejoin="round"/>' +
+          '<path d="M12.5 26.5C15.5 29 20.5 29.5 25 27" stroke="#236B3B" stroke-width="1.5" stroke-linecap="round"/>';
+        var span = document.createElement('span');
+        span.textContent = label;
+        box.appendChild(svg);
+        box.appendChild(span);
+        img.replaceWith(box);
+      };
+    </script>
+    <!-- Top Navigation Bar -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="brand-link">
+          <svg
+            class="brand-emblem"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="MK Dairies emblem"
+          >
+            <circle cx="20" cy="20" r="19" fill="#236B3B" stroke="#1B552F" stroke-width="1.2" />
+            <path
+              d="M9.5 24.5C9.5 17.5 15.5 12.5 21.5 12.5C19 16.5 16 20 11.5 25.5C10.5 25.2 9.8 24.9 9.5 24.5Z"
+              fill="#F2F6EE"
+              fill-opacity="0.92"
+            />
+            <path
+              d="M21.5 10.5C21.5 10.5 15.8 17.6 15.8 22.3C15.8 25.45 18.35 28 21.5 28C24.65 28 27.2 25.45 27.2 22.3C27.2 17.6 21.5 10.5 21.5 10.5Z"
+              fill="#FAFBF9"
+            />
+            <path
+              d="M19.2 21.5C19 23.2 19.9 24.7 21.3 25.2"
+              stroke="#236B3B"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+            <path
+              d="M12.5 29.5C16.5 31.4 23.5 31.4 28.5 28.2"
+              stroke="#F2F6EE"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="brand-name">MK Dairies</span>
+        </a>
+
+        <nav aria-label="Primary navigation" class="desktop-nav">
+          <a href="#products">Products</a>
+          <a href="#milk-subscription">Milk Plan</a>
+          <a href="#process-nutrition">Nutrition &amp; Process</a>
+          <a href="#feedback">Customer Feedback</a>
+          <a href="#order">Order / Delivery</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" id="header-order-cta" class="btn btn-primary btn-sm header-cta">
+            Request Delivery (1)
+          </button>
+
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            class="mobile-menu-btn"
+            aria-expanded="false"
+            aria-controls="mobile-navigation-panel"
+            aria-label="Open navigation menu"
+          >
+            <svg id="icon-menu-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+            <svg id="icon-menu-close" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-navigation-panel" class="mobile-drawer hidden">
+        <nav aria-label="Mobile navigation" class="mobile-nav-list">
+          <a href="#products" data-mobile-nav-link>Products</a>
+          <a href="#milk-subscription" data-mobile-nav-link>Milk Plan</a>
+          <a href="#process-nutrition" data-mobile-nav-link>Nutrition &amp; Process</a>
+          <a href="#feedback" data-mobile-nav-link>Customer Feedback</a>
+          <a href="#order" data-mobile-nav-link>Order / Delivery</a>
+        </nav>
+        <div class="mobile-drawer-cta">
+          <button type="button" id="mobile-order-cta" class="btn btn-primary btn-sm">
+            Request Delivery (1)
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="top" class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="section-kicker">Farm-to-Home Dairy &amp; Cold-Pressed Pantry · Lahore</p>
+              <h1 class="hero-title">Pure cow milk products, made honestly for Lahore homes.</h1>
+              <p class="hero-lead">
+                From thick strained Greek yogurt and chilled natural whey water to fresh cow milk,
+                bilona desi ghee, and cold-pressed canola oil—prepared in small daily batches and
+                delivered chilled to your door.
+              </p>
+
+              <div class="hero-ctas">
+                <button type="button" id="hero-order-now" class="btn btn-primary">Order Now</button>
+                <a href="#products" class="btn btn-secondary">Browse Products</a>
+              </div>
+
+              <ul class="hero-trust-list">
+                <li>Home delivery across Lahore</li>
+                <li>Cash on delivery or bank transfer</li>
+                <li>Chilled morning &amp; evening dispatch</li>
+              </ul>
+            </div>
+
+            <div class="hero-media">
+              <img
+                src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=1000&q=80"
+                alt="Fresh cow milk in a glass, natural farm cheese, eggs, and rustic bread spread for a Lahore family breakfast"
+                decoding="async"
+                onerror="window.__mkImgFallback(this)"
+                data-fallback-label="MK Dairies Fresh Cow Milk, Greek Yogurt, Whey Water & Bilona Ghee"
+              />
+            </div>
+          </div>
+
+          <div class="pillars-grid">
+            <div>
+              <p class="pillar-num">01.</p>
+              <h2 class="pillar-title font-display">100% Pure Cow Milk</h2>
+              <p class="pillar-desc">Single-farm whole cow milk with zero powder, water dilution, or preservatives.</p>
+            </div>
+            <div>
+              <p class="pillar-num">02.</p>
+              <h2 class="pillar-title font-display">Traditional Preparation</h2>
+              <p class="pillar-desc">Slow muslin straining for Greek yogurt and wooden bilona curd churning for desi ghee.</p>
+            </div>
+            <div>
+              <p class="pillar-num">03.</p>
+              <h2 class="pillar-title font-display">Clean Sports Hydration</h2>
+              <p class="pillar-desc">Naturally mineral-rich whey water bottled chilled without refined sugar or dyes.</p>
+            </div>
+            <div>
+              <p class="pillar-num">04.</p>
+              <h2 class="pillar-title font-display">Lahore Doorstep Delivery</h2>
+              <p class="pillar-desc">Chilled morning and evening dispatch across DHA, Gulberg, Model Town, Johar Town &amp; beyond.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Catalog & Interactive Category Filter -->
+      <section id="products" class="section-pad">
+        <div class="container">
+          <div class="catalog-header">
+            <div class="catalog-header-copy">
+              <p class="section-kicker" style="margin-bottom:0.5rem;">Daily Farm Catalog</p>
+              <h2 class="section-heading">Fresh dairy, high-protein staples &amp; cold-pressed oils</h2>
+              <p class="section-sub">
+                Select the items you would like delivered in Lahore. Your choices pre-fill the order
+                request form below.
+              </p>
+            </div>
+
+            <div role="tablist" aria-label="Filter products by category" class="tablist" id="category-tablist">
+              <button type="button" role="tab" aria-selected="true" data-category="all" class="tab-btn">All Products</button>
+              <button type="button" role="tab" aria-selected="false" data-category="protein" class="tab-btn">High-Protein &amp; Recovery</button>
+              <button type="button" role="tab" aria-selected="false" data-category="daily" class="tab-btn">Daily Dairy</button>
+              <button type="button" role="tab" aria-selected="false" data-category="pantry" class="tab-btn">Pantry &amp; Oils</button>
+            </div>
+          </div>
+
+          <div id="selection-banner" class="selection-banner">
+            <p id="selection-banner-text"></p>
+            <button type="button" id="jump-to-order-btn" class="link-btn">Review &amp; complete order below</button>
+          </div>
+
+          <div id="product-grid" data-testid="product-grid" class="product-grid"></div>
+        </div>
+      </section>
+
+      <!-- Daily Pure Cow Milk Subscription Section -->
+      <section id="milk-subscription" class="section-pad subscription-section">
+        <div class="container">
+          <div style="max-width:42rem;">
+            <p class="section-kicker" style="margin-bottom:0.5rem;">Daily Pure Cow Milk Subscription</p>
+            <h2 class="section-heading">Scheduled morning milk delivery for Lahore households</h2>
+            <p class="section-sub">
+              Choose a 7-day weekly or 30-day monthly routine of 100% pure, unskimmed cow milk at PKR
+              250 per liter, with chilled doorstep dispatch included in a transparent flat delivery fee.
+            </p>
+          </div>
+
+          <div class="split-2col">
+            <!-- Left: Plan & Quantity Calculator -->
+            <div class="col-span-6 panel-card">
+              <div>
+                <span class="field-label" style="font-weight:600;margin-bottom:0.625rem;">1. Choose Delivery Plan</span>
+                <div role="tablist" aria-label="Choose milk subscription plan" class="plan-tabs" id="sub-plan-tablist">
+                  <button type="button" role="tab" aria-selected="true" data-plan="weekly" class="plan-tab">
+                    <span class="plan-tab-title">Weekly Plan (7 Days)</span>
+                    <span class="plan-tab-sub tabular-nums">Flat PKR 850 delivery fee</span>
+                  </button>
+                  <button type="button" role="tab" aria-selected="false" data-plan="monthly" class="plan-tab">
+                    <span class="plan-tab-title">Monthly Plan (30 Days)</span>
+                    <span class="plan-tab-sub tabular-nums">Flat PKR 2,500 delivery fee</span>
+                  </button>
+                </div>
+              </div>
+
+              <div style="margin-top:1.75rem;">
+                <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0.5rem;margin-bottom:0.625rem;">
+                  <label for="subscription-custom-liters" style="font-size:0.875rem;font-weight:600;">
+                    2. Daily Milk Quantity (Liters / Day)
+                  </label>
+                  <span style="font-size:0.75rem;color:var(--ink-muted);" class="tabular-nums">
+                    Minimum 1 liter per day · PKR 250/L
+                  </span>
+                </div>
+
+                <div class="preset-row" id="sub-preset-row">
+                  <button type="button" data-preset="1" aria-pressed="true" class="preset-btn tabular-nums">1 L</button>
+                  <button type="button" data-preset="1.5" aria-pressed="false" class="preset-btn tabular-nums">1.5 L</button>
+                  <button type="button" data-preset="2" aria-pressed="false" class="preset-btn tabular-nums">2 L</button>
+                  <button type="button" data-preset="3" aria-pressed="false" class="preset-btn tabular-nums">3 L</button>
+                </div>
+
+                <div class="liter-stepper-row">
+                  <div class="liter-stepper">
+                    <button type="button" id="sub-dec-liters" aria-label="Decrease daily liters" class="qty-btn">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <input
+                      id="subscription-custom-liters"
+                      type="number"
+                      min="1"
+                      max="50"
+                      step="0.5"
+                      value="1"
+                      class="liter-input tabular-nums"
+                    />
+                    <button type="button" id="sub-inc-liters" aria-label="Increase daily liters" class="qty-btn">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                  </div>
+                  <span style="font-size:0.875rem;color:var(--ink-muted);">liters delivered each day</span>
+                </div>
+                <p id="sub-liters-error" role="alert" class="field-error hidden"></p>
+              </div>
+
+              <div class="breakdown-box">
+                <div class="breakdown-header">
+                  <h3 style="font-size:1.125rem;font-weight:600;">Plan Cost Breakdown</h3>
+                  <span id="sub-total-liters-label" class="font-mono tabular-nums" style="font-size:0.75rem;color:var(--ink-muted);">7 L over 7 days</span>
+                </div>
+
+                <dl class="breakdown-list">
+                  <div class="breakdown-row">
+                    <dt id="sub-milk-formula-label">Pure Cow Milk (1 L/day × 7 days × PKR 250)</dt>
+                    <dd id="sub-milk-subtotal" data-testid="sub-milk-subtotal" class="tabular-nums">PKR 1,750</dd>
+                  </div>
+                  <div class="breakdown-row">
+                    <dt id="sub-delivery-label">Mandatory Flat Lahore Delivery (Weekly (7 Days))</dt>
+                    <dd id="sub-delivery-fee" data-testid="sub-delivery-fee" class="tabular-nums">PKR 850</dd>
+                  </div>
+                  <div class="breakdown-total">
+                    <dt id="sub-total-label">Total Subscription (week)</dt>
+                    <dd id="sub-total-pkr" data-testid="sub-total-pkr" class="tabular-nums">PKR 2,600/week</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <!-- Right: Subscription Form / Confirmation -->
+            <div class="col-span-6">
+              <form id="subscription-form" class="panel-card form-stack" novalidate>
+                <div>
+                  <h3 style="font-size:1.25rem;font-weight:600;">Start Your Daily Milk Plan</h3>
+                  <p style="margin-top:0.25rem;font-size:0.875rem;color:var(--ink-muted);">
+                    Enter your Lahore contact and address details for your
+                    <strong id="sub-form-summary-inline" style="font-weight:600;color:var(--ink-primary);">1 L/day Weekly (7 Days)</strong>
+                    subscription.
+                  </p>
+                </div>
+
+                <div>
+                  <label for="sub-customer-name" class="field-label">Customer Name</label>
+                  <input id="sub-customer-name" name="customerName" type="text" placeholder="e.g. Sadia Khalid" class="field-input white" />
+                  <p id="sub-name-error" role="alert" class="field-error hidden"></p>
+                </div>
+
+                <div>
+                  <label for="sub-phone" class="field-label">Phone / WhatsApp Number</label>
+                  <input id="sub-phone" name="phone" type="tel" placeholder="0300 4123456" class="field-input white" />
+                  <p id="sub-phone-error" role="alert" class="field-error hidden"></p>
+                </div>
+
+                <div>
+                  <label for="sub-address" class="field-label">Lahore Delivery Address</label>
+                  <textarea id="sub-address" name="address" rows="2" placeholder="House / Flat No., Street, Sector / Block, Area (e.g. DHA Phase 5, Lahore)" class="field-input white"></textarea>
+                  <p id="sub-address-error" role="alert" class="field-error hidden"></p>
+                </div>
+
+                <div>
+                  <label for="sub-timing-note" class="field-label">Preferred Delivery Timing Note (Optional)</label>
+                  <input id="sub-timing-note" name="timingNote" type="text" placeholder="e.g. Morning 7:30 AM, leave with gate guard" class="field-input white" />
+                </div>
+
+                <div style="padding-top:0.75rem;border-top:1px solid var(--border-hairline);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;">
+                  <span id="sub-form-total-readout" class="font-mono tabular-nums" style="font-size:0.75rem;color:var(--ink-muted);">
+                    Total: PKR 2,600/week
+                  </span>
+                  <button type="submit" class="btn btn-primary btn-sm" style="padding:0.75rem 1.5rem;">
+                    Start Milk Subscription
+                  </button>
+                </div>
+              </form>
+
+              <div id="subscription-confirmation" data-testid="subscription-confirmation" role="status" class="confirm-card canvas hidden"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process & Nutrition Section -->
+      <section id="process-nutrition" class="section-pad process-section">
+        <div class="container">
+          <div style="max-width:42rem;">
+            <p class="section-kicker" style="margin-bottom:0.5rem;">Process &amp; Nutrition</p>
+            <h2 class="section-heading">Simple farm methods that preserve real protein and minerals</h2>
+            <p class="section-sub">
+              When dairy is made without fillers or shortcuts, every part of the milk works
+              together—rich strained yogurt for the bowl, mineral-rich whey water for recovery, and
+              cultured butterfat for the kitchen.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-card">
+              <div class="process-top">
+                <span class="font-mono tabular-nums" style="color:var(--ink-muted);">01.</span>
+                <span style="font-weight:500;color:var(--farm-green);">Approx. 10g Protein / 100g</span>
+              </div>
+              <h3 class="process-title">Slow-Strained Greek Yogurt</h3>
+              <p class="process-desc">
+                Instead of adding milk powder, cornstarch, or commercial thickeners, we culture pure cow
+                milk and let it drain gently through muslin cloth for 12 hours. Nearly three litres of
+                milk go into one kilogram of dense, creamy yogurt.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-top">
+                <span class="font-mono tabular-nums" style="color:var(--ink-muted);">02.</span>
+                <span style="font-weight:500;color:var(--mineral-blue);">Zero Added Sugar · Natural Electrolytes</span>
+              </div>
+              <h3 class="process-title">Natural Whey Water Recovery</h3>
+              <p class="process-desc">
+                The pale liquid that separates during Greek yogurt straining is pure sweet-acid
+                whey—naturally holding potassium, calcium, and mild sodium. Chilled and bottled fresh,
+                it offers light hydration after workouts or warm Lahore afternoons.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-top">
+                <span class="font-mono tabular-nums" style="color:var(--ink-muted);">03.</span>
+                <span style="font-weight:500;color:var(--ghee-gold-ink);">Cultured Curd Churn · Unrefined Pressing</span>
+              </div>
+              <h3 class="process-title">Traditional Bilona Desi Ghee &amp; Cold-Pressed Oil</h3>
+              <p class="process-desc">
+                Our desi ghee begins as whole set dahi churned with a wooden bilona to separate white
+                butter before slow simmering. For daily cooking, our canola oil is cold-pressed
+                mechanically below 45°C without hexane solvents.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Feedback & Order / Home Delivery Section -->
+      <section id="feedback" class="section-pad">
+        <div class="container">
+          <div style="max-width:42rem;">
+            <p class="section-kicker" style="margin-bottom:0.5rem;">Customer Feedback</p>
+            <h2 class="section-heading">What Lahore families &amp; regular buyers say</h2>
+            <p class="section-sub">
+              Feedback shared by regular customers across Lahore—focused on texture, natural taste,
+              consistency, and everyday value.
+            </p>
+          </div>
+
+          <div id="reviews-grid" class="reviews-grid"></div>
+
+          <div id="order" class="order-divider-wrap">
+            <div class="split-2col" style="margin-top:0;">
+              <div class="col-span-5">
+                <p class="section-kicker" style="margin-bottom:0.5rem;">Lahore Home Delivery</p>
+                <h2 class="section-heading">Place an order or weekly delivery request</h2>
+                <p class="section-sub">
+                  Submit your basket below and our dispatch desk will confirm your morning or evening
+                  delivery window by phone or WhatsApp.
+                </p>
+
+                <div class="delivery-notes-box">
+                  <h3 style="font-size:1rem;font-weight:600;color:var(--ink-primary);">Lahore Delivery Notes</h3>
+                  <ul>
+                    <li><strong style="color:var(--ink-primary);">Dispatch Windows:</strong> Morning (7:00 AM – 10:30 AM) and Evening (5:00 PM – 8:00 PM) routes.</li>
+                    <li><strong style="color:var(--ink-primary);">Chilled Handling:</strong> Fresh milk, Greek yogurt, paneer, and whey water travel in insulated cooler boxes.</li>
+                    <li><strong style="color:var(--ink-primary);">Payment:</strong> Cash on delivery or local bank transfer upon confirmation.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-span-7">
+                <form id="order-form" class="order-form-card form-stack" novalidate>
+                  <div class="form-grid-2">
+                    <div>
+                      <label for="order-name" class="field-label">Full Name</label>
+                      <input id="order-name" name="customerName" type="text" placeholder="e.g. Ayesha Tariq" class="field-input" />
+                      <p id="order-name-error" role="alert" class="field-error hidden"></p>
+                    </div>
+                    <div>
+                      <label for="order-phone" class="field-label">Phone / WhatsApp</label>
+                      <input id="order-phone" name="phone" type="tel" placeholder="0300 4123456" class="field-input" />
+                      <p id="order-phone-error" role="alert" class="field-error hidden"></p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="order-area" class="field-label">Delivery Area in Lahore</label>
+                    <select id="order-area" name="area" class="field-input">
+                      <option value="">Select your neighborhood in Lahore</option>
+                    </select>
+                    <p id="order-area-error" role="alert" class="field-error hidden"></p>
+                  </div>
+
+                  <div>
+                    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:0.5rem;margin-bottom:0.5rem;">
+                      <span class="field-label" style="margin-bottom:0;">Product Selection</span>
+                      <span id="order-units-label" class="tabular-nums" style="font-size:0.75rem;color:var(--ink-muted);">1 unit selected</span>
+                    </div>
+                    <div id="order-items-grid" class="order-items-grid"></div>
+                    <p id="order-items-error" role="alert" class="field-error hidden"></p>
+                  </div>
+
+                  <div>
+                    <label for="order-notes" class="field-label">Quantity, Address &amp; Delivery Slot Notes (Optional)</label>
+                    <textarea id="order-notes" name="notes" rows="3" placeholder="Street / house number, preferred morning or evening slot, or recurring weekly milk schedule..." class="field-input"></textarea>
+                  </div>
+
+                  <div style="padding-top:0.75rem;border-top:1px solid var(--border-hairline);display:flex;justify-content:flex-end;">
+                    <button type="submit" class="btn btn-primary btn-sm" style="padding:0.75rem 1.5rem;">
+                      Submit Delivery Request
+                    </button>
+                  </div>
+                </form>
+
+                <div id="order-confirmation" data-testid="order-confirmation" role="status" class="confirm-card hidden"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-brand-lockup">
+              <svg
+                class="footer-brand-emblem"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="20" cy="20" r="19" fill="#236B3B" stroke="#1B552F" stroke-width="1.2" />
+                <path
+                  d="M9.5 24.5C9.5 17.5 15.5 12.5 21.5 12.5C19 16.5 16 20 11.5 25.5C10.5 25.2 9.8 24.9 9.5 24.5Z"
+                  fill="#F2F6EE"
+                  fill-opacity="0.92"
+                />
+                <path
+                  d="M21.5 10.5C21.5 10.5 15.8 17.6 15.8 22.3C15.8 25.45 18.35 28 21.5 28C24.65 28 27.2 25.45 27.2 22.3C27.2 17.6 21.5 10.5 21.5 10.5Z"
+                  fill="#FAFBF9"
+                />
+                <path
+                  d="M19.2 21.5C19 23.2 19.9 24.7 21.3 25.2"
+                  stroke="#236B3B"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M12.5 29.5C16.5 31.4 23.5 31.4 28.5 28.2"
+                  stroke="#F2F6EE"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="font-display" style="font-size:1.125rem;font-weight:600;">MK Dairies</span>
+            </div>
+            <p>
+              100% pure cow milk dairy, strained Greek yogurt, natural whey water, bilona desi ghee,
+              and cold-pressed canola oil delivered chilled across Lahore.
+            </p>
+          </div>
+
+          <div class="footer-cols">
+            <div>
+              <h3>Sections</h3>
+              <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#milk-subscription">Milk Plan</a></li>
+                <li><a href="#process-nutrition">Nutrition &amp; Process</a></li>
+                <li><a href="#feedback">Customer Feedback</a></li>
+                <li><a href="#order">Order / Delivery</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Lahore Delivery</h3>
+              <p>Daily chilled routes across DHA, Gulberg, Model Town, Johar Town, Cantt &amp; Bahria Town.</p>
+            </div>
+            <div>
+              <h3>Dispatch Desk</h3>
+              <p>7:00 AM – 8:00 PM Daily</p>
+              <p class="font-mono" style="font-size:0.75rem;">+92 300 4000000</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 MK Dairies · Lahore, Pakistan</p>
+          <p>Demo storefront showcasing farm-to-home dairy &amp; natural pantry products</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        'use strict';
+
+        /* ===================================================================
+           Catalog, Reviews & Configuration Data
+           =================================================================== */
+        var FARM_WHATSAPP_NUMBER = '923004000000';
+        var MILK_RATE_PER_LITER = 250;
+        var PLANS = {
+          weekly: { id: 'weekly', label: 'Weekly Plan (7 Days)', shortLabel: 'Weekly (7 Days)', days: 7, deliveryFee: 850, period: 'week' },
+          monthly: { id: 'monthly', label: 'Monthly Plan (30 Days)', shortLabel: 'Monthly (30 Days)', days: 30, deliveryFee: 2500, period: 'month' }
+        };
+
+        var PRODUCTS = [
+          {
+            id: 'greek-yogurt',
+            name: 'Strained Greek Yogurt',
+            category: 'protein',
+            categoryLabel: 'High-Protein & Recovery',
+            unitLabel: '500g Tub',
+            pricePkr: 680,
+            summary: 'Slow-strained through fine muslin from cultured whole cow milk for a dense, spoonable texture with zero gums or starch.',
+            benefits: [
+              'Approx. 10g natural dairy protein per 100g',
+              'Thick, creamy texture without artificial thickeners',
+              'Live cultures for comfortable daily digestion'
+            ],
+            methodNote: '12-hour cloth straining',
+            imageSrc: 'https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Thick creamy strained Greek yogurt in a ceramic bowl garnished with fresh mint'
+          },
+          {
+            id: 'whey-water',
+            name: 'Natural Whey Water',
+            category: 'protein',
+            categoryLabel: 'High-Protein & Recovery',
+            unitLabel: '500ml Chilled Bottle',
+            pricePkr: 260,
+            summary: 'Crisp, mineral-rich liquid whey gently separated during Greek yogurt straining—light post-workout hydration with zero added sugar.',
+            benefits: [
+              'Natural potassium, calcium & sodium electrolytes',
+              'Light on the stomach after training or hot mornings',
+              'No refined sugar, dyes, or synthetic flavouring'
+            ],
+            methodNote: 'Fresh-bottled cold',
+            imageSrc: 'https://images.unsplash.com/photo-1630409346699-79481a79db52?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Chilled glass of refreshing pale natural whey drink beside an earthen pot and fresh herbs'
+          },
+          {
+            id: 'fresh-cow-milk',
+            name: 'Fresh Cow Milk',
+            category: 'daily',
+            categoryLabel: 'Daily Dairy',
+            unitLabel: '1 Litre Bottle',
+            pricePkr: 280,
+            summary: '100% pure, unskimmed single-farm cow milk chilled immediately after morning milking and delivered without preservatives or milk powder.',
+            benefits: [
+              'Whole natural cream line, never watered down',
+              'Clean, mild sweetness kids and families enjoy',
+              'Chilled from milking to doorstep dispatch'
+            ],
+            methodNote: 'Morning-milked & chilled',
+            imageSrc: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Ceramic jug pouring pure fresh white cow milk into a clear glass'
+          },
+          {
+            id: 'fresh-yogurt',
+            name: 'Fresh Set Yogurt',
+            category: 'daily',
+            categoryLabel: 'Daily Dairy',
+            unitLabel: '1kg Clay-Style Tub',
+            pricePkr: 360,
+            summary: 'Traditional firm-set dahi cultured in small batches from pure cow milk for balanced tang and natural body.',
+            benefits: [
+              'Clean, mild acidity suitable for everyday meals',
+              'Naturally rich in calcium and live probiotics',
+              'Sets firmly with natural malai on top'
+            ],
+            methodNote: 'Small-batch cultured',
+            imageSrc: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Chilled glass jars of thick fresh set plain cow milk yogurt'
+          },
+          {
+            id: 'cultured-butter',
+            name: 'Farm Cultured Butter',
+            category: 'daily',
+            categoryLabel: 'Daily Dairy',
+            unitLabel: '250g Parchment Block',
+            pricePkr: 590,
+            summary: 'Churned from cultured cow cream rather than sweet industrial whey cream, giving warm toast and parathas an unmistakable clean aroma.',
+            benefits: [
+              'Rich golden natural colour from grass-fed cows',
+              'Zero palm oil, hydrogenated fats, or added salt',
+              'Softens cleanly at room temperature'
+            ],
+            methodNote: 'Slow-churned cream',
+            imageSrc: 'https://images.unsplash.com/photo-1603596310923-dbb12732f9c7?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Fresh golden grass-fed farm cultured butter block'
+          },
+          {
+            id: 'fresh-cheese',
+            name: 'Fresh Farm Cheese (Paneer)',
+            category: 'daily',
+            categoryLabel: 'Daily Dairy',
+            unitLabel: '250g Vacuum Pack',
+            pricePkr: 520,
+            summary: 'Soft, sliceable fresh cow milk cheese coagulated gently with food-grade lemon acidity—mild, tender, and high in casein protein.',
+            benefits: [
+              'Holds shape in curries and grills without rubberiness',
+              'Made daily from pure whole cow milk',
+              'High satiety protein for balanced meals'
+            ],
+            methodNote: 'Pressed fresh daily',
+            imageSrc: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Fresh white farmer cheese paneer blocks beside a bowl of curd and herbs'
+          },
+          {
+            id: 'desi-ghee',
+            name: 'Bilona Desi Ghee',
+            category: 'pantry',
+            categoryLabel: 'Pantry & Oils',
+            unitLabel: '500ml Glass Jar',
+            pricePkr: 1950,
+            summary: 'Prepared from whole cow curd churned with a traditional wooden bilona to collect makhan, then slow-simmered until nutty and granular.',
+            benefits: [
+              'Churned from cultured dahi, not industrial cream',
+              'High smoke point for daily cooking & tadka',
+              'Distinct danedar (granular) texture and warm aroma'
+            ],
+            methodNote: 'Traditional bilona curd churn',
+            imageSrc: 'https://images.unsplash.com/photo-1707425197254-266fec098cae?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Clear glass jar of golden bilona desi ghee with a spoon'
+          },
+          {
+            id: 'cold-pressed-canola',
+            name: 'Cold Pressed Canola Oil',
+            category: 'pantry',
+            categoryLabel: 'Pantry & Oils',
+            unitLabel: '1 Litre Bottle',
+            pricePkr: 920,
+            summary: 'Mechanically expeller-pressed at low temperatures without hexane solvents or bleaching, preserving natural vitamin E and light flavour.',
+            benefits: [
+              'Unrefined cold mechanical pressing below 45°C',
+              'Balanced omega-3 and monounsaturated fats',
+              'Clean finish for sautéing, roasting & dressings'
+            ],
+            methodNote: 'Single-press unrefined',
+            imageSrc: 'https://images.unsplash.com/photo-1552592074-ea7a91b851b3?auto=format&fit=crop&w=1000&q=80',
+            imageAlt: 'Golden cold-pressed canola cooking oil in a clear glass dispenser bottle'
+          }
+        ];
+
+        var REVIEWS = [
+          {
+            quote: 'The Greek yogurt is genuinely thick—it stays on the spoon and tastes clean without that chalky powder aftertaste. Much better value per jar than imported tubs.',
+            customerName: 'Ayesha Tariq',
+            neighborhood: 'DHA Phase 5, Lahore',
+            orderedItem: 'Strained Greek Yogurt'
+          },
+          {
+            quote: 'I switched my post-gym drink to MK Dairies whey water over the summer. Light, refreshing, and I appreciate knowing there is no artificial syrup in it.',
+            customerName: 'Hamza Mahmood',
+            neighborhood: 'Gulberg III, Lahore',
+            orderedItem: 'Natural Whey Water'
+          },
+          {
+            quote: 'The fresh milk boils with proper natural malai and the bilona ghee smells just like homemade. Morning delivery to Model Town has been punctual every week.',
+            customerName: 'Sadia Khalid',
+            neighborhood: 'Model Town, Lahore',
+            orderedItem: 'Fresh Cow Milk & Bilona Ghee'
+          },
+          {
+            quote: 'Cold-pressed canola oil and fresh paneer have become staples in our kitchen. Honest pricing for pure ingredients without fancy packaging markups.',
+            customerName: 'Usman Farooq',
+            neighborhood: 'Johar Town, Lahore',
+            orderedItem: 'Cold Pressed Canola Oil & Paneer'
+          }
+        ];
+
+        var LAHORE_AREAS = [
+          'DHA (Phases 1–8)',
+          'Gulberg (I, II & III)',
+          'Model Town',
+          'Garden Town',
+          'Johar Town',
+          'Cantt / Cavalry Ground',
+          'Askari (I–XI)',
+          'Bahria Town Lahore',
+          'Wapda Town',
+          'Shadman / Jail Road',
+          'Other Lahore Area (Specify in Notes)'
+        ];
+
+        /* ===================================================================
+           Application State
+           =================================================================== */
+        var state = {
+          activeCategory: 'all',
+          selectedQty: { 'greek-yogurt': 1 },
+          subPlan: 'weekly',
+          subLitersInput: '1'
+        };
+
+        /* ===================================================================
+           Shared Formatting & Validation Helpers
+           =================================================================== */
+        function esc(str) {
+          return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+        }
+
+        function formatPkr(amount) {
+          return Number(amount).toLocaleString('en-PK');
+        }
+
+        function isValidPkPhone(raw) {
+          var normalized = String(raw || '').trim().replace(/[\s\-()]/g, '');
+          return /^(?:\+?92|0)?3\d{9}$/.test(normalized);
+        }
+
+        function randomRef(prefix) {
+          var num = Math.floor(1000 + Math.random() * 9000);
+          return prefix + '-' + String(num);
+        }
+
+        function buildWhatsAppLink(msg) {
+          return 'https://wa.me/' + FARM_WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+        }
+
+        function attachImageFallbacks(root) {
+          var imgs = (root || document).querySelectorAll('img[data-fallback-label]');
+          imgs.forEach(function (img) {
+            if (img.dataset.boundFallback) return;
+            img.dataset.boundFallback = '1';
+            if (img.complete && img.naturalWidth === 0) {
+              window.__mkImgFallback(img);
+              return;
+            }
+            img.addEventListener('error', function () {
+              window.__mkImgFallback(img);
+            });
+          });
+        }
+
+        function setFieldError(inputEl, errorEl, msg) {
+          if (msg) {
+            errorEl.textContent = msg;
+            errorEl.classList.remove('hidden');
+            inputEl.setAttribute('aria-invalid', 'true');
+          } else {
+            errorEl.textContent = '';
+            errorEl.classList.add('hidden');
+            inputEl.removeAttribute('aria-invalid');
+          }
+        }
+
+        function scrollToOrderSection() {
+          var target = document.getElementById('order');
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        /* ===================================================================
+           Navigation & Mobile Menu
+           =================================================================== */
+        var mobileToggle = document.getElementById('mobile-menu-toggle');
+        var mobilePanel = document.getElementById('mobile-navigation-panel');
+        var iconOpen = document.getElementById('icon-menu-open');
+        var iconClose = document.getElementById('icon-menu-close');
+
+        function setMobileMenu(open) {
+          mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          mobileToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+          mobilePanel.classList.toggle('hidden', !open);
+          iconOpen.classList.toggle('hidden', open);
+          iconClose.classList.toggle('hidden', !open);
+        }
+
+        mobileToggle.addEventListener('click', function () {
+          var isOpen = mobileToggle.getAttribute('aria-expanded') === 'true';
+          setMobileMenu(!isOpen);
+        });
+
+        document.querySelectorAll('[data-mobile-nav-link]').forEach(function (link) {
+          link.addEventListener('click', function () { setMobileMenu(false); });
+        });
+
+        document.getElementById('header-order-cta').addEventListener('click', scrollToOrderSection);
+        document.getElementById('mobile-order-cta').addEventListener('click', function () {
+          setMobileMenu(false);
+          scrollToOrderSection();
+        });
+        document.getElementById('hero-order-now').addEventListener('click', scrollToOrderSection);
+        document.getElementById('jump-to-order-btn').addEventListener('click', scrollToOrderSection);
+
+        /* ===================================================================
+           Catalog & Order Basket Synchronization
+           =================================================================== */
+        function getTotalSelectedUnits() {
+          return Object.keys(state.selectedQty).reduce(function (sum, id) {
+            return sum + (state.selectedQty[id] || 0);
+          }, 0);
+        }
+
+        function updateOrderQuantity(productId, nextQty) {
+          if (nextQty <= 0) {
+            delete state.selectedQty[productId];
+          } else {
+            state.selectedQty[productId] = Math.min(20, Math.floor(nextQty));
+          }
+          renderSelectionIndicators();
+          renderCatalogGrid();
+          renderOrderItemsGrid();
+        }
+
+        function renderSelectionIndicators() {
+          var total = getTotalSelectedUnits();
+          var ctaText = total > 0 ? 'Request Delivery (' + total + ')' : 'Order / Request Delivery';
+          document.getElementById('header-order-cta').textContent = ctaText;
+          document.getElementById('mobile-order-cta').textContent = ctaText;
+
+          var banner = document.getElementById('selection-banner');
+          var bannerText = document.getElementById('selection-banner-text');
+          if (total > 0) {
+            banner.classList.remove('hidden');
+            bannerText.innerHTML =
+              '<strong class="tabular-nums">' + total + '</strong> ' +
+              (total === 1 ? 'item' : 'items') +
+              ' added to your Lahore delivery request.';
+          } else {
+            banner.classList.add('hidden');
+          }
+
+          var orderUnitsLabel = document.getElementById('order-units-label');
+          if (orderUnitsLabel) {
+            orderUnitsLabel.textContent = total + ' ' + (total === 1 ? 'unit' : 'units') + ' selected';
+          }
+        }
+
+        function renderCatalogGrid() {
+          var grid = document.getElementById('product-grid');
+          var visible = PRODUCTS.filter(function (p) {
+            return state.activeCategory === 'all' || p.category === state.activeCategory;
+          });
+
+          grid.innerHTML = visible.map(function (p) {
+            var qty = state.selectedQty[p.id] || 0;
+            var isMineral = p.id === 'whey-water';
+
+            var actionHtml = qty === 0
+              ? '<button type="button" data-catalog-add="' + p.id + '" class="btn btn-sm ' +
+                (isMineral ? 'btn-mineral' : 'btn-primary') + '">Select for Order</button>'
+              : '<div class="qty-stepper">' +
+                '<button type="button" data-catalog-dec="' + p.id + '" aria-label="Decrease ' + esc(p.name) + ' quantity" class="qty-btn">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>' +
+                '</button>' +
+                '<span class="qty-val tabular-nums">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#236B3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>' +
+                qty + '</span>' +
+                '<button type="button" data-catalog-inc="' + p.id + '" aria-label="Increase ' + esc(p.name) + ' quantity" class="qty-btn">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>' +
+                '</button>' +
+                '</div>';
+
+            var benefitsHtml = p.benefits.map(function (b) {
+              return '<li><span aria-hidden="true" class="benefit-dash">—</span><span>' + esc(b) + '</span></li>';
+            }).join('');
+
+            return (
+              '<article class="product-card" data-testid="product-card-' + p.id + '">' +
+                '<div class="product-thumb">' +
+                  '<img src="' + esc(p.imageSrc) + '" alt="' + esc(p.imageAlt) + '" decoding="async" onerror="window.__mkImgFallback(this)" data-fallback-label="' + esc(p.name) + '" />' +
+                '</div>' +
+                '<div class="product-body">' +
+                  '<div class="product-meta">' +
+                    '<span class="product-meta-cat' + (isMineral ? ' mineral' : '') + '">' + esc(p.categoryLabel) + '</span>' +
+                    '<span aria-hidden="true">·</span>' +
+                    '<span>' + esc(p.unitLabel) + '</span>' +
+                  '</div>' +
+                  '<div class="product-title-row">' +
+                    '<h3 class="product-title">' + esc(p.name) + '</h3>' +
+                    '<span class="product-price tabular-nums">PKR ' + formatPkr(p.pricePkr) + '</span>' +
+                  '</div>' +
+                  '<p class="product-summary">' + esc(p.summary) + '</p>' +
+                  '<ul class="product-benefits">' + benefitsHtml + '</ul>' +
+                  '<div class="product-footer">' +
+                    '<span class="method-note">' + esc(p.methodNote) + '</span>' +
+                    actionHtml +
+                  '</div>' +
+                '</div>' +
+              '</article>'
+            );
+          }).join('');
+
+          attachImageFallbacks(grid);
+        }
+
+        document.getElementById('category-tablist').addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-category]');
+          if (!btn) return;
+          state.activeCategory = btn.getAttribute('data-category');
+          document.querySelectorAll('#category-tablist [role="tab"]').forEach(function (tab) {
+            tab.setAttribute('aria-selected', tab === btn ? 'true' : 'false');
+          });
+          renderCatalogGrid();
+        });
+
+        document.getElementById('product-grid').addEventListener('click', function (e) {
+          var addBtn = e.target.closest('[data-catalog-add]');
+          if (addBtn) {
+            var id = addBtn.getAttribute('data-catalog-add');
+            updateOrderQuantity(id, (state.selectedQty[id] || 0) + 1);
+            return;
+          }
+          var incBtn = e.target.closest('[data-catalog-inc]');
+          if (incBtn) {
+            var incId = incBtn.getAttribute('data-catalog-inc');
+            updateOrderQuantity(incId, (state.selectedQty[incId] || 0) + 1);
+            return;
+          }
+          var decBtn = e.target.closest('[data-catalog-dec]');
+          if (decBtn) {
+            var decId = decBtn.getAttribute('data-catalog-dec');
+            updateOrderQuantity(decId, (state.selectedQty[decId] || 0) - 1);
+          }
+        });
+
+        /* ===================================================================
+           Daily Pure Cow Milk Subscription Calculator & Form
+           =================================================================== */
+        var subLitersInputEl = document.getElementById('subscription-custom-liters');
+        var subLitersErrorEl = document.getElementById('sub-liters-error');
+        var subDecBtn = document.getElementById('sub-dec-liters');
+        var subIncBtn = document.getElementById('sub-inc-liters');
+        var subFormEl = document.getElementById('subscription-form');
+        var subConfirmEl = document.getElementById('subscription-confirmation');
+        var subNameInput = document.getElementById('sub-customer-name');
+        var subPhoneInput = document.getElementById('sub-phone');
+        var subAddressInput = document.getElementById('sub-address');
+        var subTimingInput = document.getElementById('sub-timing-note');
+
+        function computeSubscription(planId, rawLiters) {
+          var plan = PLANS[planId] || PLANS.weekly;
+          var parsed = parseFloat(rawLiters);
+          var safeLiters = Number.isFinite(parsed) && parsed >= 1 ? parsed : 1;
+          var totalLiters = Number((safeLiters * plan.days).toFixed(2));
+          var milkSubtotal = Math.round(safeLiters * plan.days * MILK_RATE_PER_LITER);
+          var deliveryFee = plan.deliveryFee;
+          var totalPkr = milkSubtotal + deliveryFee;
+          return {
+            plan: plan,
+            dailyLiters: safeLiters,
+            totalLiters: totalLiters,
+            milkSubtotal: milkSubtotal,
+            deliveryFee: deliveryFee,
+            totalPkr: totalPkr
+          };
+        }
+
+        function renderSubscriptionPreview() {
+          var b = computeSubscription(state.subPlan, state.subLitersInput);
+
+          document.querySelectorAll('#sub-plan-tablist [data-plan]').forEach(function (tab) {
+            tab.setAttribute('aria-selected', tab.getAttribute('data-plan') === state.subPlan ? 'true' : 'false');
+          });
+
+          document.querySelectorAll('#sub-preset-row [data-preset]').forEach(function (btn) {
+            var val = parseFloat(btn.getAttribute('data-preset'));
+            var hasErr = !subLitersErrorEl.classList.contains('hidden');
+            btn.setAttribute('aria-pressed', !hasErr && b.dailyLiters === val ? 'true' : 'false');
+          });
+
+          subDecBtn.disabled = b.dailyLiters <= 1;
+
+          document.getElementById('sub-total-liters-label').textContent =
+            b.totalLiters + ' L over ' + b.plan.days + ' days';
+          document.getElementById('sub-milk-formula-label').textContent =
+            'Pure Cow Milk (' + b.dailyLiters + ' L/day × ' + b.plan.days + ' days × PKR ' + MILK_RATE_PER_LITER + ')';
+          document.getElementById('sub-milk-subtotal').textContent = 'PKR ' + formatPkr(b.milkSubtotal);
+          document.getElementById('sub-delivery-label').textContent =
+            'Mandatory Flat Lahore Delivery (' + b.plan.shortLabel + ')';
+          document.getElementById('sub-delivery-fee').textContent = 'PKR ' + formatPkr(b.deliveryFee);
+          document.getElementById('sub-total-label').textContent = 'Total Subscription (' + b.plan.period + ')';
+          document.getElementById('sub-total-pkr').textContent = 'PKR ' + formatPkr(b.totalPkr) + '/' + b.plan.period;
+
+          document.getElementById('sub-form-summary-inline').textContent =
+            b.dailyLiters + ' L/day ' + b.plan.shortLabel;
+          document.getElementById('sub-form-total-readout').textContent =
+            'Total: PKR ' + formatPkr(b.totalPkr) + '/' + b.plan.period;
+        }
+
+        document.getElementById('sub-plan-tablist').addEventListener('click', function (e) {
+          var tab = e.target.closest('[data-plan]');
+          if (!tab) return;
+          state.subPlan = tab.getAttribute('data-plan');
+          renderSubscriptionPreview();
+        });
+
+        document.getElementById('sub-preset-row').addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-preset]');
+          if (!btn) return;
+          state.subLitersInput = btn.getAttribute('data-preset');
+          subLitersInputEl.value = state.subLitersInput;
+          setFieldError(subLitersInputEl, subLitersErrorEl, '');
+          renderSubscriptionPreview();
+        });
+
+        function stepSubLiters(delta) {
+          var parsed = parseFloat(state.subLitersInput);
+          var base = Number.isFinite(parsed) ? parsed : 1;
+          var next = Math.max(1, Math.min(50, Math.round((base + delta) * 2) / 2));
+          state.subLitersInput = String(next);
+          subLitersInputEl.value = state.subLitersInput;
+          setFieldError(subLitersInputEl, subLitersErrorEl, '');
+          renderSubscriptionPreview();
+        }
+
+        subDecBtn.addEventListener('click', function () { stepSubLiters(-0.5); });
+        subIncBtn.addEventListener('click', function () { stepSubLiters(0.5); });
+        subLitersInputEl.addEventListener('input', function () {
+          state.subLitersInput = subLitersInputEl.value;
+          setFieldError(subLitersInputEl, subLitersErrorEl, '');
+          renderSubscriptionPreview();
+        });
+
+        subNameInput.addEventListener('input', function () {
+          setFieldError(subNameInput, document.getElementById('sub-name-error'), '');
+        });
+        subPhoneInput.addEventListener('input', function () {
+          setFieldError(subPhoneInput, document.getElementById('sub-phone-error'), '');
+        });
+        subAddressInput.addEventListener('input', function () {
+          setFieldError(subAddressInput, document.getElementById('sub-address-error'), '');
+        });
+
+        subFormEl.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var rawLiters = parseFloat(subLitersInputEl.value);
+          var nameVal = subNameInput.value.trim();
+          var phoneVal = subPhoneInput.value.trim();
+          var addrVal = subAddressInput.value.trim();
+          var timingVal = subTimingInput.value.trim();
+
+          var hasError = false;
+          if (!Number.isFinite(rawLiters) || rawLiters < 1) {
+            setFieldError(subLitersInputEl, subLitersErrorEl, 'Daily quantity must be at least 1 liter per day.');
+            hasError = true;
+          } else if (rawLiters > 50) {
+            setFieldError(subLitersInputEl, subLitersErrorEl, 'For daily orders above 50 liters, please call dispatch.');
+            hasError = true;
+          } else {
+            setFieldError(subLitersInputEl, subLitersErrorEl, '');
+          }
+
+          if (nameVal.length < 2) {
+            setFieldError(subNameInput, document.getElementById('sub-name-error'), 'Please enter your full name (at least 2 characters).');
+            hasError = true;
+          }
+          if (!isValidPkPhone(phoneVal)) {
+            setFieldError(subPhoneInput, document.getElementById('sub-phone-error'), 'Enter a valid Pakistani mobile / WhatsApp number (e.g. 0300 1234567).');
+            hasError = true;
+          }
+          if (addrVal.length < 8) {
+            setFieldError(subAddressInput, document.getElementById('sub-address-error'), 'Please enter your complete Lahore delivery address.');
+            hasError = true;
+          }
+
+          if (hasError) return;
+
+          var b = computeSubscription(state.subPlan, rawLiters);
+          var subRef = randomRef('MKS');
+          var waLines = [
+            'Assalam-o-Alaikum MK Dairies, I\'d like to confirm Daily Pure Cow Milk Subscription ' + subRef + ':',
+            '',
+            'Plan: ' + b.plan.label,
+            'Daily Quantity: ' + b.dailyLiters + ' L / day (' + b.totalLiters + ' L total)',
+            'Milk Subtotal (' + b.dailyLiters + 'L × ' + b.plan.days + ' days × PKR ' + MILK_RATE_PER_LITER + '): PKR ' + formatPkr(b.milkSubtotal),
+            'Flat Delivery Fee: PKR ' + formatPkr(b.deliveryFee),
+            'Final Total: PKR ' + formatPkr(b.totalPkr) + ' / ' + b.plan.period,
+            '',
+            'Name: ' + nameVal,
+            'Phone / WhatsApp: ' + phoneVal,
+            'Lahore Address: ' + addrVal
+          ];
+          if (timingVal) waLines.push('Delivery Timing Note: ' + timingVal);
+          var waUrl = buildWhatsAppLink(waLines.join('\n'));
+
+          subConfirmEl.innerHTML =
+            '<div class="confirm-head">' +
+              '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#236B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+              '<div>' +
+                '<p class="font-mono" style="font-size:0.75rem;color:var(--farm-green);">Subscription ' + esc(subRef) + ' Confirmed</p>' +
+                '<h3 style="font-size:1.5rem;font-weight:600;margin-top:0.25rem;">Daily milk routine scheduled for ' + esc(nameVal) + '</h3>' +
+                '<p style="margin-top:0.375rem;font-size:0.875rem;color:var(--ink-muted);">Our Lahore route coordinator will reach out on WhatsApp to confirm your starting morning delivery slot.</p>' +
+              '</div>' +
+            '</div>' +
+            '<div class="confirm-details">' +
+              '<div class="confirm-meta-grid">' +
+                '<div><span class="confirm-label">Selected Plan</span><span class="confirm-val">' + esc(b.plan.label) + '</span></div>' +
+                '<div><span class="confirm-label">Daily Quantity</span><span class="confirm-val tabular-nums">' + b.dailyLiters + ' L / day (' + b.totalLiters + ' L total)</span></div>' +
+                '<div><span class="confirm-label">Phone / WhatsApp</span><span class="confirm-val">' + esc(phoneVal) + '</span></div>' +
+                '<div><span class="confirm-label">Lahore Delivery Address</span><span class="confirm-val">' + esc(addrVal) + '</span></div>' +
+              '</div>' +
+              (timingVal ? '<div style="padding-bottom:1rem;border-bottom:1px solid var(--border-hairline);font-size:0.75rem;color:var(--ink-muted);"><strong style="color:var(--ink-primary);">Delivery Timing Note:</strong> ' + esc(timingVal) + '</div>' : '') +
+              '<dl style="display:flex;flex-direction:column;gap:0.5rem;">' +
+                '<div style="display:flex;justify-content:space-between;gap:0.75rem;color:var(--ink-muted);"><dt>Milk Subtotal</dt><dd class="font-mono tabular-nums" style="color:var(--ink-primary);">PKR ' + formatPkr(b.milkSubtotal) + '</dd></div>' +
+                '<div style="display:flex;justify-content:space-between;gap:0.75rem;color:var(--ink-muted);"><dt>Flat Delivery Fee</dt><dd class="font-mono tabular-nums" style="color:var(--ink-primary);">PKR ' + formatPkr(b.deliveryFee) + '</dd></div>' +
+                '<div style="padding-top:0.75rem;border-top:1px solid var(--border-hairline);display:flex;justify-content:space-between;gap:0.75rem;font-weight:600;"><dt>Final Total</dt><dd class="font-mono tabular-nums" style="font-size:1rem;color:var(--farm-green);">PKR ' + formatPkr(b.totalPkr) + '/' + esc(b.plan.period) + '</dd></div>' +
+              '</dl>' +
+            '</div>' +
+            '<div class="confirm-actions">' +
+              '<a href="' + esc(waUrl) + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Confirm on WhatsApp</a>' +
+              '<button type="button" id="sub-reset-btn" class="btn btn-secondary btn-sm">Modify or Start New Plan</button>' +
+            '</div>';
+
+          subFormEl.classList.add('hidden');
+          subConfirmEl.classList.remove('hidden');
+
+          document.getElementById('sub-reset-btn').addEventListener('click', function () {
+            subConfirmEl.classList.add('hidden');
+            subFormEl.classList.remove('hidden');
+            subNameInput.value = '';
+            subPhoneInput.value = '';
+            subAddressInput.value = '';
+            subTimingInput.value = '';
+          });
+        });
+
+        /* ===================================================================
+           Reviews & Standard Order Request Form
+           =================================================================== */
+        function renderReviews() {
+          var container = document.getElementById('reviews-grid');
+          container.innerHTML = REVIEWS.map(function (r) {
+            return (
+              '<figure class="review-card">' +
+                '<blockquote class="review-quote">“' + esc(r.quote) + '”</blockquote>' +
+                '<figcaption class="review-foot">' +
+                  '<span><strong style="font-weight:600;color:var(--ink-primary);">' + esc(r.customerName) + '</strong> · ' + esc(r.neighborhood) + '</span>' +
+                  '<span style="color:var(--farm-green);font-weight:500;">' + esc(r.orderedItem) + '</span>' +
+                '</figcaption>' +
+              '</figure>'
+            );
+          }).join('');
+        }
+
+        function populateAreasSelect() {
+          var select = document.getElementById('order-area');
+          LAHORE_AREAS.forEach(function (area) {
+            var opt = document.createElement('option');
+            opt.value = area;
+            opt.textContent = area;
+            select.appendChild(opt);
+          });
+        }
+
+        function renderOrderItemsGrid() {
+          var grid = document.getElementById('order-items-grid');
+          grid.innerHTML = PRODUCTS.map(function (p) {
+            var qty = state.selectedQty[p.id] || 0;
+            return (
+              '<div class="order-item-row' + (qty > 0 ? ' selected' : '') + '">' +
+                '<div class="order-item-info">' +
+                  '<p class="order-item-name">' + esc(p.name) + '</p>' +
+                  '<p class="order-item-sub tabular-nums">' + esc(p.unitLabel) + ' · PKR ' + p.pricePkr + '</p>' +
+                '</div>' +
+                '<div class="mini-stepper">' +
+                  '<button type="button" data-order-dec="' + p.id + '" aria-label="Remove one ' + esc(p.name) + '" class="mini-btn"' + (qty === 0 ? ' disabled' : '') + '>' +
+                    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>' +
+                  '</button>' +
+                  '<span aria-label="' + esc(p.name) + ' quantity" class="mini-qty tabular-nums">' + qty + '</span>' +
+                  '<button type="button" data-order-inc="' + p.id + '" aria-label="Add one ' + esc(p.name) + '" class="mini-btn">' +
+                    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>' +
+                  '</button>' +
+                '</div>' +
+              '</div>'
+            );
+          }).join('');
+        }
+
+        var orderFormEl = document.getElementById('order-form');
+        var orderConfirmEl = document.getElementById('order-confirmation');
+        var orderNameInput = document.getElementById('order-name');
+        var orderPhoneInput = document.getElementById('order-phone');
+        var orderAreaSelect = document.getElementById('order-area');
+        var orderNotesInput = document.getElementById('order-notes');
+        var orderItemsErrorEl = document.getElementById('order-items-error');
+
+        document.getElementById('order-items-grid').addEventListener('click', function (e) {
+          var inc = e.target.closest('[data-order-inc]');
+          if (inc) {
+            var id = inc.getAttribute('data-order-inc');
+            updateOrderQuantity(id, (state.selectedQty[id] || 0) + 1);
+            orderItemsErrorEl.classList.add('hidden');
+            return;
+          }
+          var dec = e.target.closest('[data-order-dec]');
+          if (dec) {
+            var decId = dec.getAttribute('data-order-dec');
+            updateOrderQuantity(decId, Math.max(0, (state.selectedQty[decId] || 0) - 1));
+          }
+        });
+
+        orderNameInput.addEventListener('input', function () {
+          setFieldError(orderNameInput, document.getElementById('order-name-error'), '');
+        });
+        orderPhoneInput.addEventListener('input', function () {
+          setFieldError(orderPhoneInput, document.getElementById('order-phone-error'), '');
+        });
+        orderAreaSelect.addEventListener('change', function () {
+          setFieldError(orderAreaSelect, document.getElementById('order-area-error'), '');
+        });
+
+        orderFormEl.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var nameVal = orderNameInput.value.trim();
+          var phoneVal = orderPhoneInput.value.trim();
+          var areaVal = orderAreaSelect.value.trim();
+          var notesVal = orderNotesInput.value.trim();
+
+          var activeItems = PRODUCTS.filter(function (p) { return (state.selectedQty[p.id] || 0) > 0; })
+            .map(function (p) { return { product: p, qty: state.selectedQty[p.id] }; });
+
+          var hasError = false;
+          if (nameVal.length < 2) {
+            setFieldError(orderNameInput, document.getElementById('order-name-error'), 'Please enter your full name (at least 2 characters).');
+            hasError = true;
+          }
+          if (!isValidPkPhone(phoneVal)) {
+            setFieldError(orderPhoneInput, document.getElementById('order-phone-error'), 'Enter a valid Pakistani mobile / WhatsApp number (e.g. 0300 1234567).');
+            hasError = true;
+          }
+          if (!areaVal) {
+            setFieldError(orderAreaSelect, document.getElementById('order-area-error'), 'Please select your Lahore delivery area.');
+            hasError = true;
+          }
+          if (activeItems.length === 0) {
+            orderItemsErrorEl.textContent = 'Please select at least one product for delivery.';
+            orderItemsErrorEl.classList.remove('hidden');
+            hasError = true;
+          } else {
+            orderItemsErrorEl.classList.add('hidden');
+          }
+
+          if (hasError) return;
+
+          var orderRef = randomRef('MK');
+          var subtotal = activeItems.reduce(function (sum, entry) {
+            return sum + entry.product.pricePkr * entry.qty;
+          }, 0);
+
+          var waLines = ['Assalam-o-Alaikum MK Dairies, I\'d like to confirm order request ' + orderRef + ':', ''];
+          activeItems.forEach(function (entry) {
+            waLines.push('- ' + entry.product.name + ' (' + entry.product.unitLabel + ') x ' + entry.qty + ' = PKR ' + formatPkr(entry.product.pricePkr * entry.qty));
+          });
+          waLines.push('', 'Estimated Total: PKR ' + formatPkr(subtotal), 'Name: ' + nameVal, 'Phone: ' + phoneVal, 'Lahore Area: ' + areaVal);
+          if (notesVal) waLines.push('Notes: ' + notesVal);
+
+          var itemsHtml = activeItems.map(function (entry) {
+            return (
+              '<li style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;">' +
+                '<span>' + esc(entry.product.name) + ' (' + esc(entry.product.unitLabel) + ') × ' + entry.qty + '</span>' +
+                '<span class="font-mono tabular-nums" style="font-weight:500;">PKR ' + formatPkr(entry.product.pricePkr * entry.qty) + '</span>' +
+              '</li>'
+            );
+          }).join('');
+
+          orderConfirmEl.innerHTML =
+            '<div class="confirm-head">' +
+              '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#236B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+              '<div>' +
+                '<p class="font-mono" style="font-size:0.75rem;color:var(--farm-green);">Request ' + esc(orderRef) + ' Received</p>' +
+                '<h3 style="font-size:1.5rem;font-weight:600;margin-top:0.25rem;">Thank you, ' + esc(nameVal) + '</h3>' +
+                '<p style="margin-top:0.375rem;font-size:0.875rem;color:var(--ink-muted);">Your Lahore home delivery request has been recorded. Our team confirms route timing via WhatsApp or call before dispatch.</p>' +
+              '</div>' +
+            '</div>' +
+            '<div class="confirm-details">' +
+              '<div class="confirm-meta-grid">' +
+                '<div><span class="confirm-label">Phone / WhatsApp</span><span class="confirm-val">' + esc(phoneVal) + '</span></div>' +
+                '<div><span class="confirm-label">Lahore Delivery Area</span><span class="confirm-val">' + esc(areaVal) + '</span></div>' +
+              '</div>' +
+              '<div>' +
+                '<span class="confirm-label" style="margin-bottom:0.5rem;">Requested Items</span>' +
+                '<ul style="display:flex;flex-direction:column;gap:0.5rem;">' + itemsHtml + '</ul>' +
+              '</div>' +
+              (notesVal ? '<div style="padding-top:0.75rem;border-top:1px solid var(--border-hairline);font-size:0.75rem;color:var(--ink-muted);"><strong style="color:var(--ink-primary);">Notes:</strong> ' + esc(notesVal) + '</div>' : '') +
+              '<div style="padding-top:1rem;border-top:1px solid var(--border-hairline);display:flex;align-items:center;justify-content:space-between;font-weight:600;">' +
+                '<span>Estimated Total (excl. delivery if applicable)</span>' +
+                '<span class="font-mono tabular-nums" style="font-size:1rem;">PKR ' + formatPkr(subtotal) + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="confirm-actions">' +
+              '<a href="' + esc(buildWhatsAppLink(waLines.join('\n'))) + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Send Summary on WhatsApp</a>' +
+              '<button type="button" id="order-reset-btn" class="btn btn-secondary btn-sm">Place Another Request</button>' +
+            '</div>';
+
+          orderFormEl.classList.add('hidden');
+          orderConfirmEl.classList.remove('hidden');
+
+          document.getElementById('order-reset-btn').addEventListener('click', function () {
+            orderConfirmEl.classList.add('hidden');
+            orderFormEl.classList.remove('hidden');
+            orderNameInput.value = '';
+            orderPhoneInput.value = '';
+            orderAreaSelect.value = '';
+            orderNotesInput.value = '';
+            state.selectedQty = {};
+            renderSelectionIndicators();
+            renderCatalogGrid();
+            renderOrderItemsGrid();
+          });
+        });
+
+        /* ===================================================================
+           Initial Render
+           =================================================================== */
+        attachImageFallbacks(document);
+        renderSelectionIndicators();
+        renderCatalogGrid();
+        renderSubscriptionPreview();
+        renderReviews();
+        populateAreasSelect();
+        renderOrderItemsGrid();
+      })();
+    </script>
+  </body>
+</html>
